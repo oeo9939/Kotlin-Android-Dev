@@ -1,10 +1,3 @@
-// Basics Kotlin Maps
-fun main(args: Array<String>) {
-    val users = mutableMapOf<Int, String>(1 to "Maria", 2 to "Alex", 3 to "John")
+fun main(){
 
-    users[5] = "Vlad"
-    users.remove(2)
-    users.forEach { t, u ->
-        println("$t and $u")
-    }
 }
