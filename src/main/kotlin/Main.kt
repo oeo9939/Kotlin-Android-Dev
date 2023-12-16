@@ -1,25 +1,20 @@
-// Basics Kotlin - Map Transformation
+import java.util.*
 
-//Association
+// Basics Kotlin - String Representation
 fun main() {
-    val numbers = listOf("one", "two", "three", "four")
-    println(numbers.associateWith { it.length })
-    println(numbers.associateBy { it.first().uppercase() })
-    println(numbers.associateBy(keySelector = { it.first().uppercase() }, valueTransform = { it.length }))
+    val numbersStrings = listOf("one", "two", "three", "four")
+    println(numbersStrings)
+    println(numbersStrings.joinToString())
+
+    val listString = StringBuffer("The list of numbers: ")
+    println(numbersStrings.joinTo(listString))
+
+    println(numbersStrings.joinToString(separator = " | ", prefix = "start: ", postfix = ": end"))
+
+    val numbers = (1..100).toList()
+    println(numbers.joinToString(limit = 25, truncated = "<...>"))
+
     println("\n")
-
-    //Flatten
-    val numbersSets = listOf(setOf(1, 2, 3), setOf(4, 5, 6), setOf(7, 8, 9))
-//    for (numbers in numbersSets) {
-//        for (number in numbers) {
-//            println(number)
-//        }
-//        println("\n")
-//    }
-
-    //Flatten - Two dimensional array -> One dimensional array
-    val numbersFlatten = numbersSets.flatten()
-    for (number in numbersFlatten) {
-        println(number)
-    }
+    println(numbersStrings.joinToString { "Element: ${it.uppercase()}" })
+    println(numbersStrings.joinToString { "Element: ${it.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}" })
 }
